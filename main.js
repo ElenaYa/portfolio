@@ -152,6 +152,14 @@ function getSampleProjects() {
             thumbnail: "images/project10.webp",
             stack: ["php", "CSS", "JavaScript"],
             liveDemo: "https://rise-loomz-com.vercel.app"
+        },
+        {
+            id: 11,
+            title: " Neuroflux Business Akademie",
+            description: "A website specializing in entrepreneur training and business startup guidance, offering comprehensive support for business development and management.",
+            thumbnail: "images/project11.webp",
+            stack: ["HTML", "CSS", "JavaScript"],
+            liveDemo: "https://elenaya.github.io/neurofluxmedia/"
         }
     ];
 }
