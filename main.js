@@ -144,14 +144,6 @@ function getSampleProjects() {
             thumbnail: "images/project9.webp",
             stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
             liveDemo: "https://elenaya.github.io/ultrixhil"
-        },
-        {
-            id: 10,
-            title: "Chronos Forge",
-            description: "A website platform for creating narrative games.",
-            thumbnail: "images/project10.webp",
-            stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
-            liveDemo: "https://elenaya.github.io/xelronit"
         }
     ];
 }
