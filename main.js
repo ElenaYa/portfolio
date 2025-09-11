@@ -144,6 +144,14 @@ function getSampleProjects() {
             thumbnail: "images/project9.webp",
             stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
             liveDemo: "https://elenaya.github.io/ultrixhil"
+        },
+        {
+            id: 10,
+            title: "Rise Loomz ",
+            description: "A website about customer service consulting experts, providing professional guidance and solutions for improving customer experience and service quality.",
+            thumbnail: "images/project10.webp",
+            stack: ["php", "CSS", "JavaScript"],
+            liveDemo: "https://rise-loomz-com.vercel.app"
         }
     ];
 }
