@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarah Chen - Frontend Developer</title>
+    <meta name="description" content="Frontend Developer specializing in modern web technologies and user experience design">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header" role="banner">
+        <nav class="nav" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1 class="logo-text">Sarah Chen</h1>
+                    <p class="tagline">Frontend Developer</p>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <svg class="bg-curves" aria-hidden="true">
+                <path d="M0,100 Q150,20 300,80 T600,60 L600,200 L0,200 Z" fill="var(--accent-light)" opacity="0.3"/>
+                <path d="M0,150 Q200,50 400,100 T800,90 L800,250 L0,250 Z" fill="var(--primary-light)" opacity="0.2"/>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">Creating Beautiful Digital Experiences</h2>
+                <p class="hero-subtitle">I'm a passionate frontend developer who loves crafting intuitive, accessible, and visually stunning web applications that make a difference.</p>
+                <a href="#projects" class="cta-button">View My Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="images/placeholder.jpg" alt="Sarah Chen - Frontend Developer" class="portrait">
+                </div>
+                <div class="about-text">
+                    <p>Hello! I'm Sarah, a frontend developer with a passion for creating meaningful digital experiences. With over 3 years of experience in web development, I specialize in building responsive, accessible, and user-friendly applications.</p>
+                    <p>When I'm not coding, you can find me exploring new design trends, contributing to open-source projects, or enjoying a good book with a cup of tea.</p>
+                    <a href="#" class="cv-button" aria-label="Download my CV">Download CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-badge">
+                    <span class="skill-icon">🌐</span>
+                    <span class="skill-name">HTML5</span>
+                </div>
+                <div class="skill-badge">
+                    <span class="skill-icon">🎨</span>
+                    <span class="skill-name">CSS3</span>
+                </div>
+                <div class="skill-badge">
+                    <span class="skill-icon">⚡</span>
+                    <span class="skill-name">JavaScript</span>
+                </div>
+                <div class="skill-badge">
+                    <span class="skill-icon">🔧</span>
+                    <span class="skill-name">PHP</span>
+                </div>
+                <div class="skill-badge">
+                    <span class="skill-icon">📱</span>
+                    <span class="skill-name">Responsive Design</span>
+                </div>
+                <div class="skill-badge">
+                    <span class="skill-icon">♿</span>
+                    <span class="skill-name">Accessibility</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid" id="projects-grid">
+                <!-- Projects will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="contact-content">
+                <p class="contact-text">I'm always interested in new opportunities and collaborations. Feel free to reach out!</p>
+                <div class="contact-links">
+                    <a href="mailto:sarah.chen@example.com" class="contact-link">
+                        <span class="contact-icon">📧</span>
+                        <span>sarah.chen@example.com</span>
+                    </a>
+                    <a href="https://github.com/sarahchen" target="_blank" rel="noopener noreferrer" class="contact-link">
+                        <span class="contact-icon">🐙</span>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://linkedin.com/in/sarahchen" target="_blank" rel="noopener noreferrer" class="contact-link">
+                        <span class="contact-icon">💼</span>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Sarah Chen. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="https://github.com/sarahchen" target="_blank" rel="noopener noreferrer" aria-label="GitHub">🐙</a>
+                    <a href="https://linkedin.com/in/sarahchen" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">💼</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
