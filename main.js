@@ -91,39 +91,35 @@ function getSampleProjects() {
     return [
         {
             id: 1,
-            title: "E-Commerce Dashboard",
+            title: "Information service about rinos in Argentina",
             description: "A responsive admin dashboard for managing products, orders, and customer data with real-time analytics and beautiful data visualizations.",
-            thumbnail: "images/project1.jpg",
-            stack: ["HTML", "CSS", "JavaScript", "Chart.js"],
-            liveDemo: "https://yourusername.github.io/ecommerce-dashboard",
-            github: "https://github.com/yourusername/ecommerce-dashboard"
+            thumbnail: "images/project1.webp",
+            stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+            liveDemo: "https://elenaya.github.io/cosmocores"
         },
         {
             id: 2,
             title: "Weather App",
             description: "A clean and intuitive weather application featuring location-based forecasts, interactive maps, and beautiful weather animations.",
-            thumbnail: "images/project2.jpg",
+            thumbnail: "images/placeholder.jpg",
             stack: ["HTML", "CSS", "JavaScript", "API"],
-            liveDemo: "https://yourusername.github.io/weather-app",
-            github: "https://github.com/yourusername/weather-app"
+            liveDemo: "https://yourusername.github.io/weather-app"
         },
         {
             id: 3,
             title: "Task Management Tool",
             description: "A productivity-focused task manager with drag-and-drop functionality, project organization, and collaborative features.",
-            thumbnail: "images/project3.jpg",
+            thumbnail: "images/placeholder.jpg",
             stack: ["HTML", "CSS", "JavaScript", "Local Storage"],
-            liveDemo: "https://yourusername.github.io/task-manager",
-            github: "https://github.com/yourusername/task-manager"
+            liveDemo: "https://yourusername.github.io/task-manager"
         },
         {
             id: 4,
             title: "Recipe Finder",
             description: "A culinary companion that helps users discover recipes based on ingredients, dietary preferences, and cooking time.",
-            thumbnail: "images/project4.jpg",
+            thumbnail: "images/placeholder.jpg",
             stack: ["HTML", "CSS", "JavaScript", "Recipe API"],
-            liveDemo: "https://yourusername.github.io/recipe-finder",
-            github: "https://github.com/yourusername/recipe-finder"
+            liveDemo: "https://yourusername.github.io/recipe-finder"
         }
     ];
 }
@@ -155,6 +151,7 @@ function createProjectCard(project) {
                 class="project-iframe" 
                 loading="lazy"
                 sandbox="allow-same-origin allow-scripts allow-forms"
+                referrerpolicy="no-referrer"
                 title="Live preview of ${project.title}"
                 aria-label="Interactive preview of ${project.title} project"
             ></iframe>
@@ -179,15 +176,6 @@ function createProjectCard(project) {
                     aria-label="View live demo of ${project.title}"
                 >
                     Live Demo
-                </a>
-                <a 
-                    href="${project.github}" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    class="project-link secondary"
-                    aria-label="View ${project.title} source code on GitHub"
-                >
-                    GitHub
                 </a>
             </div>
         </div>
@@ -233,14 +221,8 @@ function loadIframeWithFallback(iframe, fallback, url) {
     iframe.addEventListener('load', () => {
         hasLoaded = true;
         clearTimeout(timeout);
-        
-        try {
-            iframe.contentWindow.document;
-            iframe.style.display = 'block';
-            fallback.classList.remove('active');
-        } catch (e) {
-            showFallback(iframe, fallback);
-        }
+        iframe.style.display = 'block';
+        fallback.classList.remove('active');
     });
     
     iframe.addEventListener('error', () => {
