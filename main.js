@@ -1,30 +1,23 @@
-// === MAIN PORTFOLIO JAVASCRIPT ===
-
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all functionality
     initNavigation();
     initSmoothScrolling();
     loadProjects();
     initScrollEffects();
 });
 
-// === NAVIGATION FUNCTIONALITY ===
 function initNavigation() {
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    // Mobile menu toggle
     navToggle.addEventListener('click', function() {
         navToggle.classList.toggle('active');
         navMenu.classList.toggle('active');
         
-        // Toggle aria-expanded for accessibility
         const isExpanded = navMenu.classList.contains('active');
         navToggle.setAttribute('aria-expanded', isExpanded);
     });
 
-    // Close mobile menu when clicking on links
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
             navToggle.classList.remove('active');
@@ -33,7 +26,6 @@ function initNavigation() {
         });
     });
 
-    // Close mobile menu when clicking outside
     document.addEventListener('click', function(e) {
         if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
             navToggle.classList.remove('active');
@@ -42,7 +34,6 @@ function initNavigation() {
         }
     });
 
-    // Keyboard navigation for mobile toggle
     navToggle.addEventListener('keydown', function(e) {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
@@ -51,7 +42,6 @@ function initNavigation() {
     });
 }
 
-// === SMOOTH SCROLLING ===
 function initSmoothScrolling() {
     const links = document.querySelectorAll('a[href^="#"]');
     
@@ -75,19 +65,16 @@ function initSmoothScrolling() {
     });
 }
 
-// === PROJECT LOADING FUNCTIONALITY ===
 async function loadProjects() {
     const projectsGrid = document.getElementById('projects-grid');
     
     try {
-        // Try to load from projects.json file
         const response = await fetch('projects.json');
         let projects;
         
         if (response.ok) {
             projects = await response.json();
         } else {
-            // Fallback to sample data if projects.json doesn't exist
             projects = getSampleProjects();
         }
         
@@ -95,13 +82,11 @@ async function loadProjects() {
         
     } catch (error) {
         console.log('Loading sample projects data...');
-        // Use sample data if fetch fails
         const projects = getSampleProjects();
         renderProjects(projects, projectsGrid);
     }
 }
 
-// === SAMPLE PROJECTS DATA ===
 function getSampleProjects() {
     return [
         {
@@ -143,7 +128,6 @@ function getSampleProjects() {
     ];
 }
 
-// === RENDER PROJECTS ===
 function renderProjects(projects, container) {
     container.innerHTML = '';
     
@@ -152,11 +136,9 @@ function renderProjects(projects, container) {
         container.appendChild(projectCard);
     });
     
-    // Add animation to project cards
-    animateProjectCards();
+    initProjectObserver();
 }
 
-// === CREATE PROJECT CARD ===
 function createProjectCard(project) {
     const card = document.createElement('article');
     card.className = 'project-card';
@@ -168,14 +150,19 @@ function createProjectCard(project) {
     ).join('');
     
     card.innerHTML = `
-        <img 
-            src="${project.thumbnail}" 
-            alt="Screenshot of ${project.title} project"
-            class="project-thumbnail"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-        >
-        <div class="project-thumbnail-placeholder" style="display: none; height: 200px; background: linear-gradient(135deg, var(--primary-light), var(--accent-light)); align-items: center; justify-content: center; color: var(--text-light); font-size: var(--font-size-lg);">
-            Project Preview
+        <div class="project-preview" data-url="${project.liveDemo}">
+            <iframe 
+                class="project-iframe" 
+                loading="lazy"
+                sandbox="allow-same-origin allow-scripts allow-forms"
+                title="Live preview of ${project.title}"
+                aria-label="Interactive preview of ${project.title} project"
+            ></iframe>
+            <div class="project-fallback" style="background-image: url('${project.thumbnail}')">
+                <div class="fallback-overlay">
+                    <div class="fallback-text">🔗 Open Live Demo</div>
+                </div>
+            </div>
         </div>
         <div class="project-content">
             <h3 id="project-title-${project.id}" class="project-title">${project.title}</h3>
@@ -209,12 +196,71 @@ function createProjectCard(project) {
     return card;
 }
 
-// === SCROLL EFFECTS ===
+function initProjectObserver() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const preview = entry.target;
+                const iframe = preview.querySelector('.project-iframe');
+                const fallback = preview.querySelector('.project-fallback');
+                const url = preview.getAttribute('data-url');
+                
+                if (url && !iframe.src) {
+                    loadIframeWithFallback(iframe, fallback, url);
+                }
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '50px'
+    });
+    
+    document.querySelectorAll('.project-preview').forEach(preview => {
+        observer.observe(preview);
+    });
+}
+
+function loadIframeWithFallback(iframe, fallback, url) {
+    const timeoutDuration = 5000;
+    let hasLoaded = false;
+    
+    const timeout = setTimeout(() => {
+        if (!hasLoaded) {
+            showFallback(iframe, fallback);
+        }
+    }, timeoutDuration);
+    
+    iframe.addEventListener('load', () => {
+        hasLoaded = true;
+        clearTimeout(timeout);
+        
+        try {
+            iframe.contentWindow.document;
+            iframe.style.display = 'block';
+            fallback.classList.remove('active');
+        } catch (e) {
+            showFallback(iframe, fallback);
+        }
+    });
+    
+    iframe.addEventListener('error', () => {
+        hasLoaded = true;
+        clearTimeout(timeout);
+        showFallback(iframe, fallback);
+    });
+    
+    iframe.src = url;
+}
+
+function showFallback(iframe, fallback) {
+    iframe.style.display = 'none';
+    fallback.classList.add('active');
+}
+
 function initScrollEffects() {
     const header = document.querySelector('.header');
     let lastScrollY = window.scrollY;
     
-    // Header background opacity on scroll
     function updateHeaderOnScroll() {
         const currentScrollY = window.scrollY;
         
@@ -229,7 +275,6 @@ function initScrollEffects() {
         lastScrollY = currentScrollY;
     }
     
-    // Throttle scroll events for better performance
     let ticking = false;
     function onScroll() {
         if (!ticking) {
@@ -243,12 +288,9 @@ function initScrollEffects() {
     }
     
     window.addEventListener('scroll', onScroll);
-    
-    // Set initial header state
     updateHeaderOnScroll();
 }
 
-// === ACTIVE NAVIGATION LINK ===
 function updateActiveNavLink() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -273,38 +315,6 @@ function updateActiveNavLink() {
     });
 }
 
-// === PROJECT CARD ANIMATIONS ===
-function animateProjectCards() {
-    const cards = document.querySelectorAll('.project-card');
-    
-    // Intersection Observer for fade-in animation
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-    
-    cards.forEach((card, index) => {
-        // Initial state for animation
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-        
-        observer.observe(card);
-    });
-}
-
-// === UTILITY FUNCTIONS ===
-
-// Debounce function for performance optimization
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -317,9 +327,7 @@ function debounce(func, wait) {
     };
 }
 
-// Add keyboard navigation support
 document.addEventListener('keydown', function(e) {
-    // Escape key closes mobile menu
     if (e.key === 'Escape') {
         const navToggle = document.getElementById('nav-toggle');
         const navMenu = document.getElementById('nav-menu');
@@ -333,17 +341,14 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// === ERROR HANDLING ===
 window.addEventListener('error', function(e) {
     console.error('Portfolio Error:', e.error);
-    // Handle any runtime errors gracefully
 });
 
-// === PERFORMANCE OPTIMIZATION ===
-// Preload critical images
 function preloadImages() {
     const criticalImages = [
-        'images/placeholder.jpg'
+        'images/placeholder.jpg',
+        'images/backgrounds/hero-bg.jpg'
     ];
     
     criticalImages.forEach(src => {
@@ -352,14 +357,11 @@ function preloadImages() {
     });
 }
 
-// Initialize image preloading
 preloadImages();
 
-// === ACCESSIBILITY ENHANCEMENTS ===
-// Skip to main content link
 function addSkipLink() {
     const skipLink = document.createElement('a');
-    skipLink.href = '#hero';
+    skipLink.href = '#main';
     skipLink.textContent = 'Skip to main content';
     skipLink.className = 'skip-link';
     skipLink.style.cssText = `
@@ -386,9 +388,6 @@ function addSkipLink() {
     document.body.insertBefore(skipLink, document.body.firstChild);
 }
 
-addSkipLink();
-
-// Announce page changes for screen readers
 function announcePageChange(message) {
     const announcement = document.createElement('div');
     announcement.setAttribute('aria-live', 'polite');
