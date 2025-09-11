@@ -33,6 +33,7 @@
     --space-lg: 2rem;
     --space-xl: 3rem;
     --space-2xl: 4rem;
+    --header-height: 70px;
     
     /* Border Radius */
     --radius-sm: 0.5rem;
@@ -271,9 +272,10 @@ ul {
 /* === HERO SECTION === */
 .hero {
     position: relative;
-    min-height: 100vh;
+    min-height: 60vh;
     display: flex;
     align-items: center;
+    padding-top: calc(var(--header-height, 70px) + 20px);
     overflow: hidden;
 }
 
