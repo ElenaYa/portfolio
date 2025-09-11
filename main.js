@@ -158,8 +158,16 @@ function getSampleProjects() {
             title: " Neuroflux Business Akademie",
             description: "A website specializing in entrepreneur training and business startup guidance, offering comprehensive support for business development and management.",
             thumbnail: "images/project11.webp",
-            stack: ["HTML", "CSS", "JavaScript"],
+            stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
             liveDemo: "https://elenaya.github.io/neurofluxmedia/"
+        },
+        {
+            id: 12,
+            title: "Turkish Cloud Gaming Platform",
+            description: "A website for a cloud gaming platform in Turkey, providing cloud-based gaming services, virtual game streaming.",
+            thumbnail: "images/project12.webp",
+            stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+            liveDemo: "https://elenaya.github.io/quantalflix"
         }
     ];
 }
