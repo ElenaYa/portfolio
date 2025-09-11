@@ -426,7 +426,6 @@ ul {
 .projects {
     position: relative;
     padding: var(--space-2xl) 0;
-    background: var(--white);
 }
 
 .projects-grid {
@@ -574,6 +573,32 @@ ul {
     color: var(--white);
 }
 
+.project-link.primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-link.primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0.0) 100%);
+    transform: skewX(-20deg);
+    transition: transform 0.6s ease, left 0.6s ease;
+}
+
+.project-link.primary:hover::after,
+.project-link.primary:focus::after {
+    left: 150%;
+}
+
+.project-link.primary:hover {
+    box-shadow: var(--shadow-lg);
+}
+
 .project-link.secondary {
     background: var(--neutral);
     color: var(--text);
@@ -599,7 +624,6 @@ ul {
 .contact {
     position: relative;
     padding: var(--space-2xl) 0;
-    background: var(--neutral);
 }
 
 .contact-content {
@@ -650,17 +674,51 @@ ul {
     font-size: var(--font-size-xl);
 }
 
+/* New contact list buttons */
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    align-items: center;
+}
+
+.contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: var(--white);
+    font-weight: 600;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--primary);
+}
+
+.contact-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.contact-btn:hover,
+.contact-btn:focus {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    outline: none;
+}
+
 /* === FOOTER === */
 .footer {
-    background: var(--text);
+    background: linear-gradient(135deg, var(--primary), var(--accent));
     color: var(--white);
-    padding: var(--space-lg) 0;
+    padding: var(--space-xl) 0;
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: var(--space-md);
 }
 
 .footer-social {
@@ -669,16 +727,27 @@ ul {
 }
 
 .footer-social a {
-    font-size: var(--font-size-xl);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 9999px;
     transition: var(--transition);
-    padding: var(--space-xs);
-    border-radius: var(--radius-sm);
 }
 
 .footer-social a:hover,
 .footer-social a:focus {
-    transform: scale(1.2);
+    transform: translateY(-2px);
     outline: none;
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.footer-social svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
 }
 
 /* === RESPONSIVE DESIGN === */

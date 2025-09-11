@@ -65,61 +65,85 @@ function initSmoothScrolling() {
     });
 }
 
-async function loadProjects() {
+function loadProjects() {
     const projectsGrid = document.getElementById('projects-grid');
-    
-    try {
-        const response = await fetch('projects.json');
-        let projects;
-        
-        if (response.ok) {
-            projects = await response.json();
-        } else {
-            projects = getSampleProjects();
-        }
-        
-        renderProjects(projects, projectsGrid);
-        
-    } catch (error) {
-        console.log('Loading sample projects data...');
-        const projects = getSampleProjects();
-        renderProjects(projects, projectsGrid);
-    }
+    const projects = getSampleProjects();
+    renderProjects(projects, projectsGrid);
 }
 
 function getSampleProjects() {
     return [
         {
             id: 1,
-            title: "Information service about rinos in Argentina",
-            description: "A responsive admin dashboard for managing products, orders, and customer data with real-time analytics and beautiful data visualizations.",
+            title: "Rinocerontes Argentina",
+            description: "Information service about rinos in Argentina",
             thumbnail: "images/project1.webp",
             stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
             liveDemo: "https://elenaya.github.io/cosmocores"
         },
         {
             id: 2,
-            title: "Weather App",
-            description: "A clean and intuitive weather application featuring location-based forecasts, interactive maps, and beautiful weather animations.",
-            thumbnail: "images/placeholder.jpg",
-            stack: ["HTML", "CSS", "JavaScript", "API"],
-            liveDemo: "https://yourusername.github.io/weather-app"
+            title: "Ziravox VR Kulübüne Hoş Geldiniz",
+            description: "A clean and intuitive VR club website.",
+            thumbnail: "images/project2.webp",
+            stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+            liveDemo: "https://elenaya.github.io/ziravox"
         },
         {
             id: 3,
-            title: "Task Management Tool",
-            description: "A productivity-focused task manager with drag-and-drop functionality, project organization, and collaborative features.",
-            thumbnail: "images/placeholder.jpg",
-            stack: ["HTML", "CSS", "JavaScript", "Local Storage"],
-            liveDemo: "https://yourusername.github.io/task-manager"
+            title: "Pixelbird Club",
+            description: "Website of the game development school and service platform by Ukrainian developers.",
+            thumbnail: "images/project3.webp",
+            stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+            liveDemo: "https://elenaya.github.io/pixelbird.club"
         },
         {
             id: 4,
-            title: "Recipe Finder",
-            description: "A culinary companion that helps users discover recipes based on ingredients, dietary preferences, and cooking time.",
-            thumbnail: "images/placeholder.jpg",
-            stack: ["HTML", "CSS", "JavaScript", "Recipe API"],
-            liveDemo: "https://yourusername.github.io/recipe-finder"
+            title: "Turkish Gaming Platform",
+            description: "A gaming platform website for Turkey providing game reviews, community features, and esports coverage.",
+            thumbnail: "images/project4.webp",
+            stack: ["HTML", "CSS", "JavaScript"],
+            liveDemo: "https://elenaya.github.io/savilix"
+        },
+        {
+            id: 5,
+            title: "Solar Energy Mexico",
+            description: "A website about solar energy solutions and renewable power initiatives in Mexico.",
+            thumbnail: "images/project5.webp",
+            stack: ["HTML", "CSS", "JavaScript"],
+            liveDemo: "https://elenaya.github.io/fuerzassolar"
+        },
+        {
+            id: 6,
+            title: "Verde Solucion",
+            description: "A website about solar energy solutions and renewable power initiatives in Mexico.",
+            thumbnail: "images/project6.webp",
+            stack: ["HTML", "CSS", "JavaScript"],
+            liveDemo: "https://elenaya.github.io/verdesolucion"
+        },
+        {
+            id: 7,
+            title: "GameON Academy",
+            description: "A website for an esports academy offering professional gaming training and competitive skills development.",
+            thumbnail: "images/project7.webp",
+            stack: ["HTML", "CSS", "JavaScript"],
+            liveDemo: "https://elenaya.github.io/dexorim"
+        },
+        {
+            id: 8,
+            title: "Zentrolix",
+            description: "A website about cloud gaming services, offering information about game streaming platforms and cloud-based gaming solutions.",
+            thumbnail: "images/project8.webp",
+            stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+            liveDemo: "https://elenaya.github.io/zentrolix"
+        },
+        {
+            id: 9,
+            title: "UltrixHil Studio",
+            description: "A website about mobile game development, showcasing game design principles, development tools, and best practices for creating engaging mobile games.",
+            thumbnail: "images/project9.webp",
+            stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+            liveDemo: "https://elenaya.github.io/ultrixhil"
         }
     ];
 }
@@ -329,8 +353,10 @@ window.addEventListener('error', function(e) {
 
 function preloadImages() {
     const criticalImages = [
-        'images/placeholder.jpg',
-        'images/backgrounds/hero-bg.jpg'
+        'images/hero-bg.jpg',
+        'images/about-bg.jpg',
+        'images/projects-bg.jpg',
+        'images/contact-bg.jpg'
     ];
     
     criticalImages.forEach(src => {
@@ -396,7 +422,5 @@ function announcePageChange(message) {
 }
 
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    console.log('Dark mode preference detected');
 }
 
-console.log('Portfolio initialized successfully! 🎨');
