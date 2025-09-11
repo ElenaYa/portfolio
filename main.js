@@ -168,6 +168,14 @@ function getSampleProjects() {
             thumbnail: "images/project12.webp",
             stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
             liveDemo: "https://elenaya.github.io/quantalflix"
+        },
+        {
+            id: 13,
+            title: "SkilfulGamer",
+            description: "A Ukrainian resource for gamers who want to make the right choice of gaming platform, providing comprehensive guidance and comparisons.",
+            thumbnail: "images/project13.webp",
+            stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+            liveDemo: "https://elenaya.github.io/skillfulgamer/"
         }
     ];
 }
