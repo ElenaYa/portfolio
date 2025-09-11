@@ -176,6 +176,14 @@ function getSampleProjects() {
             thumbnail: "images/project13.webp",
             stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
             liveDemo: "https://elenaya.github.io/skillfulgamer/"
+        },
+        {
+            id: 14,
+            title: "Zoravixo",
+            description: "A modern platform for order automation and advanced analytics for online businesses.",
+            thumbnail: "images/project14.webp",
+            stack: ["HTML", "CSS", "JavaScript", "PHP"],
+            liveDemo: "https://zoravixo-com.vercel.app/"
         }
     ];
 }
