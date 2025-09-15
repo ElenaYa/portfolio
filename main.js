@@ -196,10 +196,26 @@ function getSampleProjects() {
         {
             id: 16,
             title: "Turkish Football History",
-            description: "A fan site dedicated to the rich history of Turkish football.",
+            description: "A website about the history of Turkish football.",
             thumbnail: "images/project16.webp",
             stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
             liveDemo: "https://elenaya.github.io/lumidexi/"
+        },
+        {
+            id: 17,
+            title: "German Language School",
+            description: "Website of a language school for German courses.",
+            thumbnail: "images/project17.webp",
+            stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+            liveDemo: "https://elenaya.github.io/labyrinthula/"
+        },
+        {
+            id: 18,
+            title: "IT Teams Estonia",
+            description: "Building teams of web developers, designers and QA engineers in Estonia.",
+            thumbnail: "images/project18.webp",
+            stack: ["PHP", "CSS", "JavaScript"],
+            liveDemo: "https://frevonto-com.vercel.app"
         }
     ];
 }
