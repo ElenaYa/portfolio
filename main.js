@@ -192,6 +192,14 @@ function getSampleProjects() {
             thumbnail: "images/project15.webp",
             stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
             liveDemo: "https://elenaya.github.io/actavora/"
+        },
+        {
+            id: 16,
+            title: "Turkish Football History",
+            description: "A fan site dedicated to the rich history of Turkish football.",
+            thumbnail: "images/project16.webp",
+            stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+            liveDemo: "https://elenaya.github.io/lumidexi/"
         }
     ];
 }
