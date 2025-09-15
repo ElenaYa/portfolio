@@ -184,6 +184,14 @@ function getSampleProjects() {
             thumbnail: "images/project14.webp",
             stack: ["HTML", "CSS", "JavaScript", "PHP"],
             liveDemo: "https://zoravixo-com.vercel.app/"
+        },
+        {
+            id: 15,
+            title: "Actavora",
+            description: "A technology provider offering a browser-based platform.",
+            thumbnail: "images/project15.webp",
+            stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+            liveDemo: "https://elenaya.github.io/actavora/"
         }
     ];
 }
