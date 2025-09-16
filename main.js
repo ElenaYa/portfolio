@@ -256,6 +256,14 @@ function getSampleProjects() {
             thumbnail: "images/project23.webp",
             stack: ["PHP", "CSS", "JavaScript"],
             liveDemo: "https://skytroniclabs-com.vercel.app"
+        },
+        {
+            id: 24,
+            title: "Clearnexa",
+            description: "Website showcasing advanced data analytics and business intelligence solutions.",
+            thumbnail: "images/project24.webp",
+            stack: ["PHP", "CSS", "JavaScript"],
+            liveDemo: "https://clearnexa-com.vercel.app"
         }
     ];
 }
