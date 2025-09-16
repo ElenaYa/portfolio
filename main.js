@@ -216,6 +216,14 @@ function getSampleProjects() {
             thumbnail: "images/project18.webp",
             stack: ["PHP", "CSS", "JavaScript"],
             liveDemo: "https://frevonto-com.vercel.app"
+        },
+        {
+            id: 19,
+            title: "Frevonto",
+            description: "Professional IT recruitment in Lithuania. Finding the best candidates for the business.",
+            thumbnail: "images/project19.webp",
+            stack: ["PHP", "CSS", "JavaScript"],
+            liveDemo: "https://juvilora-com.vercel.app"
         }
     ];
 }
