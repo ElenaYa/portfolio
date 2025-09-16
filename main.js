@@ -232,6 +232,14 @@ function getSampleProjects() {
             thumbnail: "images/project20.webp",
             stack: ["PHP", "CSS", "JavaScript"],
             liveDemo: "https://navitroxa-com.vercel.app"
+        },
+        {
+            id: 21,
+            title: "Vazirlo",
+            description: "Website about increasing sales through analytics.",
+            thumbnail: "images/project21.webp",
+            stack: ["PHP", "CSS", "JavaScript"],
+            liveDemo: "https://vazirlo-com.vercel.app"
         }
     ];
 }
