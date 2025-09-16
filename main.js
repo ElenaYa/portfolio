@@ -240,6 +240,22 @@ function getSampleProjects() {
             thumbnail: "images/project21.webp",
             stack: ["PHP", "CSS", "JavaScript"],
             liveDemo: "https://vazirlo-com.vercel.app"
+        },
+        {
+            id: 22,
+            title: "Lumorans",
+            description: "Web and app design studio portfolio website.",
+            thumbnail: "images/project22.webp",
+            stack: ["PHP", "CSS", "JavaScript"],
+            liveDemo: "https://lumorans-com.vercel.app"
+        },
+        {
+            id: 23,
+            title: "Skytronic Labs",
+            description: "IT courses and professional training website.",
+            thumbnail: "images/project23.webp",
+            stack: ["PHP", "CSS", "JavaScript"],
+            liveDemo: "https://skytroniclabs-com.vercel.app"
         }
     ];
 }
