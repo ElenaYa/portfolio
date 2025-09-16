@@ -224,6 +224,14 @@ function getSampleProjects() {
             thumbnail: "images/project19.webp",
             stack: ["PHP", "CSS", "JavaScript"],
             liveDemo: "https://juvilora-com.vercel.app"
+        },
+        {
+            id: 20,
+            title: "Navitroxa",
+            description: "Static website about online business sales optimization.",
+            thumbnail: "images/project20.webp",
+            stack: ["PHP", "CSS", "JavaScript"],
+            liveDemo: "https://navitroxa-com.vercel.app"
         }
     ];
 }
